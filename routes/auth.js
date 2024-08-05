@@ -11,6 +11,7 @@ const apiLimiter = rateLimiter({
     msg: "Too many requests from this IP, please try again after 15 minutes",
   },
 });
+
 const { register, login, updateUser } = require("../controllers/auth");
 
 router.post("/register", apiLimiter, register);

@@ -29,6 +29,10 @@ app.use(xss());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
+/*This tells the Express app to handle all GET requests 
+(* matches any route).
+ This is essentially a catch-all route handler. 
+*/
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
